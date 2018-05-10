@@ -3,22 +3,32 @@ import './app.css';
 import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import Profile from './profile';
 import Gallery from './gallery';
+import * as spotifyAPI from './spotifyapi';
 
 class App extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
+			token: '',
 			query: '',
 			artist: null,
 			tracks: []
 		}
 	}
 
-	search() {
-		const OAuth_token = 'BQC7yUIl-dtcWdt_pL2Yn_DcgJP5b_Rfg5vb3LnJC2sOz4kRj_iw7CgVcef6hVLN8aDefl_ORBOl6HyIbIqjuAtNKGnLwZV_FHMYQH2ACfpuaXjAPwfisPxwl_4RGuGm03DCCWV_Zu4o';
+	componentDidMount() {
+		spotifyAPI.getToken()
+		.then((res) => {
+			this.setState({token: res.access_token})
+		})
+		.catch((err) => {
+			console.log(err);
+		})
+	}
 
+	search() {
 		const headers = {
-			'Authorization': 'Bearer ' + OAuth_token,
+			'Authorization': 'Bearer ' + this.state.token,
 			'content-type': 'application/json'
 			}
 
