@@ -3,7 +3,7 @@ import './app.css';
 import {FormGroup, FormControl, InputGroup, Glyphicon} from 'react-bootstrap';
 import Profile from './profile';
 import Gallery from './gallery';
-import * as spotifyAPI from './spotifyapi';
+import axios from 'axios';
 
 class App extends Component {
 	constructor(props){
@@ -17,9 +17,10 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		spotifyAPI.getToken()
+		axios('/auth')
 		.then((res) => {
-			this.setState({token: res.access_token})
+			console.log('hello',res.data.access_token);
+			this.setState({token: res.data.access_token})
 		})
 		.catch((err) => {
 			console.log(err);
