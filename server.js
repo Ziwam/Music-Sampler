@@ -9,7 +9,8 @@ var client_secret = '318a29cf3ebf44f99a1fbdc262300ed7';
 app.use(express.static(path.resolve(__dirname, '..', 'musicsampler')));
 
 app.get('/', function(req,res) {
-	res.sendFile(path.resolve(__dirname, 'musicsampler','index.html'));
+	// res.sendFile(path.resolve(__dirname, 'musicsampler','index.html'));
+	res.send('no')
 })
 
 app.get('/auth', function(req,res) {
@@ -33,7 +34,7 @@ app.get('/auth', function(req,res) {
 	})
 })
 
-app.listen(3000, function() {
+app.listen(process.env.PORT||3000, function() {
 	console.log("server is listening on port 3000");
 })
 
