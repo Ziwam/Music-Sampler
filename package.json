@@ -1,6 +1,5 @@
 {
   "name": "musicsampler",
-  "homepage": "https://Ziwam.github.io/musicsampler",
   "version": "0.1.0",
   "private": true,
   "main": "server.js",

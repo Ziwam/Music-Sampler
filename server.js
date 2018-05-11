@@ -6,10 +6,10 @@ var axios = require('axios');
 var client_id = 'a97816676173447190c178a15751903b';
 var client_secret = '318a29cf3ebf44f99a1fbdc262300ed7';
 
-app.use(express.static(path.resolve(__dirname, '..', 'musicsampler')));
+app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.get('/', function(req,res) {
-	res.sendFile(path.resolve(__dirname, 'musicsampler','index.html'));
+	res.sendFile(path.resolve(__dirname, 'build','index.html'));
 })
 
 app.get('/auth', function(req,res) {
