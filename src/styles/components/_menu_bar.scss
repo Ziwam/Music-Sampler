@@ -1,0 +1,161 @@
+@import '../helpers/_mixins.scss';
+
+.menu {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: #191919;
+	transition: all .3s;
+
+	.range_clipper {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 8px;
+		background: linear-gradient(90deg, #8099e0 0, #9b77bc 60%, #f24f66 100%);
+		background-clip: padding-box;
+		overflow: hidden;
+
+		input[type=range]{
+			appearance: none;
+			height: 8px;
+			cursor: pointer;
+			background-color: rgba(0,0,0,0);
+			width: 100%;
+
+			&:focus {
+				outline: none;
+			}
+		
+			&::-webkit-slider-thumb {
+				cursor: pointer;
+				box-shadow: 2000px 0 0 2000px rgb(0,0,0);
+			}
+		}
+	}
+	
+	.progress_bar {
+		width: 100%;
+	}
+
+	.display {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		margin: 16px 18px 10px;
+
+		.info {
+			width: 33%;
+			display: flex;
+			flex-wrap: nowrap;
+
+			.track_text {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				margin-left: 10px;
+
+				.title {
+					font-size: .8em;
+					text-align: left;
+				}
+
+				.dash {
+					display: none;
+				}
+
+				.artist {
+					font-size: .6em;
+					opacity: .7;
+				}
+			}
+
+			img {
+				@include size(55px)
+			}
+		}
+
+		.controls {
+			width: 33%;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: center;
+
+			div {
+				display: flex;
+				justify-content: center;
+				margin: 0 8px;
+				@include size(50px);
+
+				img {
+					@include size(100%);
+					margin: auto;
+				}
+
+				&.prev, &.next {
+					@include size(30px);
+				}
+
+			}
+		}
+
+		.volume {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			margin-left: auto;
+
+			img {
+				@include size(15px);
+				margin-right: 2px;
+			}
+		}
+	
+		@include mobile{
+			flex-direction: column;
+
+			.info {
+				justify-content: center;
+				width: 100%;
+				.track_text{
+					margin: 0;
+					margin-bottom: 10px;
+					flex-direction: row;
+					align-items: center;
+					.title {
+						font-size: 1em;
+						order: 1;
+					}
+					.dash {
+						display: block;
+						margin: 0 5px;
+						font-size: 1em;
+					}
+					.artist {
+						font-size: 1em;
+						order: -1;
+					}
+				}
+
+				img {
+					display: none;
+				}
+			}
+
+			.controls {
+				width: 100%;
+			}
+			.volume {
+				display: none;
+			}
+		}
+	}
+
+	&.hidden {
+		transform: translateY(300px);
+	}
+
+}

@@ -1,0 +1,61 @@
+@import '../helpers/_mixins.scss';
+
+.search {
+	display: flex;
+	position: fixed;
+	z-index: 2;
+	background: #000;
+	padding: 8px;
+	width: 100%;
+
+	.title {
+		font-size: 1.8em;
+		opacity: .15;
+		letter-spacing: 3px;
+	}
+	
+	.inputfield {
+		width: 70%;
+		display: flex;
+		margin: 0 auto;
+
+		.text {
+			width: 100%;
+			padding: 0 70px 0 10px;
+			border-radius: 4px;
+			border: none;
+			font-size: .9em;
+			
+			&:focus {
+				outline: none;
+			}
+		}
+		
+		.submit {
+			display: flex;
+			border: none;
+			background-color: transparent;
+			width: 70px;
+			margin-left: -70px;
+
+			img {
+				@include size(17px);
+				margin: auto;
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		@include mobile {
+			.text {
+				padding-right: 50px;
+			}
+			.submit{			
+				width: 50px;
+				margin-left: -50px;
+			}
+		}
+	}
+}
