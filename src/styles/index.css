@@ -1,6 +1,21 @@
 .App {
   text-align: center; }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px; }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent; }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #A8A8A8; }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #969696; }
+
 html, body {
   height: 100%; }
 
@@ -218,7 +233,11 @@ html {
     margin: auto; }
     .wrapper .gallery .track {
       margin: 10px;
-      margin-bottom: 15px; }
+      margin-bottom: 15px;
+      -webkit-animation: fade-in .5s .1s ease-out 1 normal backwards;
+      -moz-animation: fade-in .5s .1s ease-out 1 normal backwards;
+      -o-animation: fade-in .5s .1s ease-out 1 normal backwards;
+      animation: fade-in .5s .1s ease-out 1 normal backwards; }
       .wrapper .gallery .track img {
         width: 150px;
         height: 150px;

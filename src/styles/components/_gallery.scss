@@ -46,6 +46,10 @@
 				font-size: .8em;
 			}
 
+			@include animation(
+				'fade-in .5s .1s ease-out 1 normal backwards',
+			);
+
 		}
 
 		@include mobile {
