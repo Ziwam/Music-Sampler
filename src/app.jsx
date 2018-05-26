@@ -136,7 +136,9 @@ class App extends Component {
 		if(forcePause){
 			this.setState({playing: false})
 			this.state.audio.pause()
-			this.state.audio.currentTime = 0;
+			let trk = this.state.audio;
+			trk.currentTime = 0;
+			this.setState({audio: trk})
 		}else if(this.state.audio.paused) {
 			this.state.audio.play()
 			this.setState({playing: true})

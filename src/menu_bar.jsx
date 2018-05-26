@@ -80,7 +80,7 @@ class Menu extends Component {
 				</div>
 				<div className="display">
 					<div className="info">
-						<img src={track_img} alt="track image"/>
+						<img src={track_img} alt="track"/>
 						<div className="track_text">
 							<div className="title">{track_name}</div>
 							<div className="dash">-</div>

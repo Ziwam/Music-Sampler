@@ -16,15 +16,16 @@
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
-    "start-css": "SET NODE_ENV=development && npm-run-all -p watch-css start-js",
+    "start-css": "SET NODE_ENV=development && npm-run-all -p serve watch-css start-js",
     "start": "node server.js",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "nodemon server.js"
+    "serve": "nodemon ./dev_auth/app.js"
   },
   "devDependencies": {
+    "cors": "^2.8.4",
     "nodemon": "^1.17.4"
   }
 }
